@@ -1,0 +1,4 @@
+Scrapy==1.4.0
+openpyxl==1.8.1
+numpy==1.13.3
+pandas==0.8
