@@ -8,9 +8,7 @@
 import scrapy
 
 
-class MobaItem(scrapy.Item):
+class LagouItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    name = scrapy.Field()
-    # album = scrapy.Field()
-    url = scrapy.Field()
+    pass

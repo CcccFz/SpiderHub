@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for moba project
+# Scrapy settings for lol project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'moba'
+BOT_NAME = 'lol'
 
-SPIDER_MODULES = ['moba.spiders']
-NEWSPIDER_MODULE = 'moba.spiders'
+SPIDER_MODULES = ['lol.spiders']
+NEWSPIDER_MODULE = 'lol.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'moba (+http://www.yourdomain.com)'
+#USER_AGENT = 'lol (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'moba.middlewares.MobaSpiderMiddleware': 543,
+#    'lol.middlewares.LolSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'moba.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'lol.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'moba.pipelines.MobaPipeline': 300,
+#    'lol.pipelines.LolPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,4 +90,7 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 FEED_EXPORT_ENCODING = 'utf-8'
-IMAGES_STORE = 'img'   # 图片存储路径
+IMAGES_STORE = 'img'   # ͼƬ�洢·��
+
+LOG_LEVEL= 'WARNING'
+# LOG_FILE ='error.log'

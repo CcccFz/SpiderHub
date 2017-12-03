@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-
-import logging
 from scrapy.spiders import Spider
 from scrapy.http import Request
-from fang.items import AnjukeItem, AnjukeInfo
+from ..items import AnjukeItem, AnjukeInfo
+
 
 class AnjukeSpider(Spider):
     name = "anjuke"
@@ -23,6 +22,7 @@ class AnjukeSpider(Spider):
                 u'金堂', u'彭州', u'邛崃', u'崇州', u'天府新区']
 
     def __init__(self):
+        super(Spider, self).__init__()
         self._callbacks = {}
         for k, v in AnjukeInfo.iteritems():
             self._callbacks[k] = getattr(self, v, self.default_callback)
