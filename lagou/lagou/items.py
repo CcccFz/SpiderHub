@@ -5,14 +5,21 @@ from collections import OrderedDict
 
 
 LagouInfo = OrderedDict([
-    (u'岗位名', 'name'),
-    (u'公司', 'company'),
-    (u'薪资', 'salary'),
-    # (u'经验'  , 'developers'),
-    # (u'地址', 'residential_address'),
-    # (u'福利', 'initial_payment'),
-    # (u'描述', 'monthly_payment'),
+    (u'职位', 'name'),
     (u'详细', 'detail'),
+    (u'薪资', 'salary'),
+    (u'公司', 'company'),
+    (u'经验', 'experience'),
+    (u'地址', 'address'),
+    (u'优势', 'advantage'),
+    (u'描述', 'description'),
+    (u'学历', 'education'),
+    (u'时间', 'time'),
+    (u'标签', 'flags'),
+    (u'领域', 'field'),
+    (u'阶段', 'trend'),
+    (u'规模', 'scale'),
+    (u'主页', 'home'),
 ])
 
 
@@ -21,9 +28,14 @@ class LagouItem(scrapy.Item):
     salary = scrapy.Field()
     company = scrapy.Field()
     experience = scrapy.Field()
-    city = scrapy.Field()
+    education = scrapy.Field()
     address = scrapy.Field()
     advantage = scrapy.Field()
     description = scrapy.Field()
     detail = scrapy.Field()
-
+    time = scrapy.Field()
+    flags = scrapy.Field()
+    field = scrapy.Field()
+    trend = scrapy.Field()
+    scale = scrapy.Field()
+    home = scrapy.Field()

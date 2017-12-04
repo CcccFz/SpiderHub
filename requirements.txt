@@ -5,3 +5,4 @@ ipython==2.4.1
 Scrapy==1.4.0
 numpy
 pandas
+charts
