@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'anjuke.spiders'
 #USER_AGENT = 'anjuke (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -27,13 +27,13 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 0.5
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -55,6 +55,7 @@ ROBOTSTXT_OBEY = True
 #DOWNLOADER_MIDDLEWARES = {
 #    'anjuke.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
+RANDOM_UA_TYPE='random'
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -90,9 +91,8 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_EXPORT_ENCODING = 'utf-8'
 
-IMAGES_STORE = 'img'   # Í¼Æ¬´æ´¢Â·¾¶
-#  IMAGES_EXPIRES = 90                                   # ¹ıÆÚÌìÊı
-ROBOTSTXT_OBEY = False
-IMAGES_MIN_HEIGHT = 100                               # Í¼Æ¬µÄ×îĞ¡¸ß¶È
-IMAGES_MIN_WIDTH = 100                                # Í¼Æ¬µÄ×îĞ¡¿í¶È
-# Í¼Æ¬µÄ³ß´çĞ¡ÓÚIMAGES_MIN_WIDTH*IMAGES_MIN_HEIGHTµÄÍ¼Æ¬¶¼»á±»¹ıÂË
+IMAGES_STORE = 'img'   # å›¾ç‰‡å­˜å‚¨è·¯å¾„
+#  IMAGES_EXPIRES = 90                                   # è¿‡æœŸå¤©æ•°
+#IMAGES_MIN_HEIGHT = 100                               # å›¾ç‰‡çš„æœ€å°é«˜åº¦
+#IMAGES_MIN_WIDTH = 100                                # å›¾ç‰‡çš„æœ€å°å®½åº¦
+# å›¾ç‰‡çš„å°ºå¯¸å°äºIMAGES_MIN_WIDTH*IMAGES_MIN_HEIGHTçš„å›¾ç‰‡éƒ½ä¼šè¢«è¿‡æ»¤

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='layui/css/layui.css') }}">
+</head>
+
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">淘工作</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="{{ url_for('static', filename='base/me.jpg') }}" class="layui-nav-img">
+          CcccFz
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">帐号设置</a></dd>
+          <dd><a href="">退出</a></dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree">
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">用户</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">管理用户</a></dd>
+            <dd><a href="javascript:;">新增用户</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">查工作</a></li>
+        <li class="layui-nav-item"><a href="">找工作</a></li>
+        <li class="layui-nav-item"><a href="">分析工作</a></li>
+        <li class="layui-nav-item"><a href="">地图选工作</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body">
+    <!-- Tab选项卡 -->
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+      <ul class="layui-tab-title">
+        <li class="layui-this">拉勾</li>
+        <li>猎聘</li>
+        <li>智联</li>
+      </ul>
+      <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+      </div>
+    </div>
+
+    <!-- 内容主体区域 -->
+    <div class="layui-form">
+      <table class="layui-table">
+        <colgroup>
+          <col width="150">
+          <col width="150">
+          <col width="200">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>人物</th>
+            <th>民族</th>
+            <th>出场时间</th>
+            <th>格言</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>贤心</td>
+            <td>汉族</td>
+            <td>1989-10-14</td>
+            <td>人生似修行</td>
+          </tr>
+          <tr>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    Copyright ©2017 CcccFz<a href="https://github.com/CcccFz" target="_blank"></a>. All Rights Reserved.
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='layui/layui.js') }}"></script>
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+
+</body>
+</html>

@@ -13,11 +13,10 @@ from openpyxl import Workbook
 import pandas as pd
 import charts
 
-from fang.items import AnjukeInfo
+from .items import AnjukeInfo
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 from scrapy.http import Request
-
 
 
 class AnjukePipeline(object):
@@ -51,54 +50,54 @@ class AnjukePipeline(object):
             logging.error('No exists the sheet[%s] in excel' % item['loc'])
             #  raise DropItem("miss item %s" % item)
 
-class PdAnjukePipeline(object):
-    def open_spider(self, spider):
-        self.data = OrderedDict(zip(spider.sections,
-                                    [OrderedDict() for x in spider.sections]
-                                )
-                    )
+# class PdAnjukePipeline(object):
+#     def open_spider(self, spider):
+#         self.data = OrderedDict(zip(spider.sections,
+#                                     [OrderedDict() for x in spider.sections]
+#                                 )
+#                     )
+#
+#     def close_spider(self, spider):
+#         writer = pd.ExcelWriter('anjuke_pd.xlsx')
+#         charts_data = {'avg': []}
+#         for loc, loc_data in self.data.iteritems():
+#             df = pd.DataFrame(loc_data)
+#             df.to_excel(writer, sheet_name=loc, index=False)
+#
+#             charts_data[loc] = zip(loc_data[u'æ¥¼ç›˜åç§°'], loc_data[u'å‚è€ƒå•ä»·'])
+#             tmp = [x for x in loc_data[u'å‚è€ƒå•ä»·'] if x]
+#             charts_data['avg'].append({'name': loc, 'data': [sum(tmp)/len(tmp)], 'type': 'column'})
+#
+#         charts.plot(charts_data['avg'], show='inline', save='avg.html',
+#                     options={'title': {'text': u'åŒºåŸŸæ–°æˆ¿å‡ä»·'}})
+#         charts.plot([{'name': x, 'data': charts_data[x]} for x in charts_data if x != 'avg'],
+#                     show='inline', save='anjuke.html',
+#                     options={'title': {'text': u'æˆéƒ½æ‰€æœ‰æ–°æˆ¿'}})
+#         writer.save()
+#
+#     def process_item(self, item, spider):
+#         if item['loc'] in self.data:
+#             for attr, field in AnjukeInfo.iteritems():
+#                 if attr not in self.data[item['loc']]:
+#                     self.data[item['loc']][attr] = [item[field] if field in item else '']
+#                 else:
+#                     self.data[item['loc']][attr].append(item[field] if field in item else '')
+#             return item
+#         else:
+#             logging.error('No exists the sheet[%s] in excel' % item['loc'])
+#             #  raise DropItem("miss item %s" % item)
 
-    def close_spider(self, spider):
-        writer = pd.ExcelWriter('anjuke_pd.xlsx')
-        charts_data = {'avg': []}
-        for loc, loc_data in self.data.iteritems():
-            df = pd.DataFrame(loc_data)
-            df.to_excel(writer, sheet_name=loc, index=False)
-
-            charts_data[loc] = zip(loc_data[u'Â¥ÅÌÃû³Æ'], loc_data[u'²Î¿¼µ¥¼Û'])
-            tmp = [x for x in loc_data[u'²Î¿¼µ¥¼Û'] if x]
-            charts_data['avg'].append({'name': loc, 'data': [sum(tmp)/len(tmp)], 'type': 'column'})
-
-        charts.plot(charts_data['avg'], show='inline', save='avg.html',
-                    options={'title': {'text': u'ÇøÓòĞÂ·¿¾ù¼Û'}})
-        charts.plot([{'name': x, 'data': charts_data[x]} for x in charts_data if x != 'avg'],
-                    show='inline', save='anjuke.html',
-                    options={'title': {'text': u'³É¶¼ËùÓĞĞÂ·¿'}})
-        writer.save()
-
-    def process_item(self, item, spider):
-        if item['loc'] in self.data:
-            for attr, field in AnjukeInfo.iteritems():
-                if attr not in self.data[item['loc']]:
-                    self.data[item['loc']][attr] = [item[field] if field in item else '']
-                else:
-                    self.data[item['loc']][attr].append(item[field] if field in item else '')
-            return item
-        else:
-            logging.error('No exists the sheet[%s] in excel' % item['loc'])
-            #  raise DropItem("miss item %s" % item)
-
-class AnjukeImagesPipeline(ImagesPipeline):
-    def file_path(self, request, response=None, info=None):
-        return u'%s/00_¼Û¸ñÇ÷ÊÆÍ¼.jpg' % request.meta['dir']
-
-    def get_media_requests(self, item, info):
-        if 'image_urls' in item:
-            yield Request('https://%s' % item['image_urls'],
-                          meta={'dir': item['building_name']})
-
-    def item_completed(self, results, item, info):
-        image_paths = [x['path'] for ok, x in results if ok]
-        #  if not image_paths:
-            #  raise DropItem("Item contains no images %s" % item['building_name'])
-        return item
+# class AnjukeImagesPipeline(ImagesPipeline):
+#     def file_path(self, request, response=None, info=None):
+#         return u'%s/00_ä»·æ ¼è¶‹åŠ¿å›¾.jpg' % request.meta['dir']
+#
+#     def get_media_requests(self, item, info):
+#         if 'image_urls' in item:
+#             yield Request('https://%s' % item['image_urls'],
+#                           meta={'dir': item['building_name']})
+#
+#     def item_completed(self, results, item, info):
+#         image_paths = [x['path'] for ok, x in results if ok]
+#         #  if not image_paths:
+#             #  raise DropItem("Item contains no images %s" % item['building_name'])
+#         return item

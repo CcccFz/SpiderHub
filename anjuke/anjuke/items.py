@@ -5,33 +5,33 @@ import scrapy
 
 
 AnjukeInfo = OrderedDict([
-    (u'Â¥ÅÌÃû³Æ', 'building_name'),
-    (u'Â¥ÅÌÌØµã', 'building_feature'),
-    (u'²Î¿¼µ¥¼Û', 'refer_price'),
-    (u'ÎïÒµÀàĞÍ', 'property_type'),
-    (u'¿ª·¢ÉÌ'  , 'developers'),
-    (u'ÇøÓòÎ»ÖÃ', 'regional_position'),
-    (u'Â¥ÅÌµØÖ·', 'residential_address'),
-    (u'×îµÍÊ×¸¶', 'initial_payment'),
-    (u'ÔÂ¹©'    , 'monthly_payment'),
-    (u'Â¥ÅÌÓÅ»İ', 'privilege'),
-    (u'Â¥ÅÌ»§ĞÍ', 'house_type'),
-    (u'¿ªÅÌÊ±¼ä', 'open_time'),
-    (u'½»·¿Ê±¼ä', 'completion_date'),
-    (u'ÊÛÂ¥´¦µØÖ·', 'sale_address'),
-    (u'½¨ÖşÀàĞÍ', 'building_type'),
-    (u'²úÈ¨ÄêÏŞ', 'property_year'),
-    (u'Èİ»ıÂÊ'  , 'volume_rate'),
-    (u'ÂÌ»¯ÂÊ'  , 'green_rate'),
-    (u'¹æ»®»§Êı', 'plan_number'),
-    (u'Â¥²ã×´¿ö', 'floor_condition'),
-    (u'¹¤³Ì½ø¶È', 'progress_work'),
-    (u'ÎïÒµ¹ÜÀí·Ñ', 'manage_fee'),
-    (u'ÎïÒµ¹«Ë¾', 'manage_company'),
-    (u'³µÎ»Êı'  , 'parking_number'),
-    (u'³µÎ»±È'  , 'parking_ratio'),
-    (u'¼Û¸ñ×ßÊÆ', 'price_trend'),
-    (u'Â¥ÅÌÍ¼Æ¬', 'building_images'),
+    (u'æ¥¼ç›˜åç§°', 'building_name'),
+    (u'æ¥¼ç›˜ç‰¹ç‚¹', 'building_feature'),
+    (u'å‚è€ƒå•ä»·', 'refer_price'),
+    (u'ç‰©ä¸šç±»å‹', 'property_type'),
+    (u'å¼€å‘å•†'  , 'developers'),
+    (u'åŒºåŸŸä½ç½®', 'regional_position'),
+    (u'æ¥¼ç›˜åœ°å€', 'residential_address'),
+    (u'æœ€ä½é¦–ä»˜', 'initial_payment'),
+    (u'æœˆä¾›'    , 'monthly_payment'),
+    (u'æ¥¼ç›˜ä¼˜æƒ ', 'privilege'),
+    (u'æ¥¼ç›˜æˆ·å‹', 'house_type'),
+    (u'å¼€ç›˜æ—¶é—´', 'open_time'),
+    (u'äº¤æˆ¿æ—¶é—´', 'completion_date'),
+    (u'å”®æ¥¼å¤„åœ°å€', 'sale_address'),
+    (u'å»ºç­‘ç±»å‹', 'building_type'),
+    (u'äº§æƒå¹´é™', 'property_year'),
+    (u'å®¹ç§¯ç‡'  , 'volume_rate'),
+    (u'ç»¿åŒ–ç‡'  , 'green_rate'),
+    (u'è§„åˆ’æˆ·æ•°', 'plan_number'),
+    (u'æ¥¼å±‚çŠ¶å†µ', 'floor_condition'),
+    (u'å·¥ç¨‹è¿›åº¦', 'progress_work'),
+    (u'ç‰©ä¸šç®¡ç†è´¹', 'manage_fee'),
+    (u'ç‰©ä¸šå…¬å¸', 'manage_company'),
+    (u'è½¦ä½æ•°'  , 'parking_number'),
+    (u'è½¦ä½æ¯”'  , 'parking_ratio'),
+    (u'ä»·æ ¼èµ°åŠ¿', 'price_trend'),
+    (u'æ¥¼ç›˜å›¾ç‰‡', 'building_images'),
 ])
 
 class AnjukeItem(scrapy.Item):
@@ -63,10 +63,9 @@ class AnjukeItem(scrapy.Item):
     price_trend = scrapy.Field()
     building_images = scrapy.Field()
 
-    # ÓÃÓÚ´«µİÊı¾İ
-    loc = scrapy.Field()    # ±íÊ¾µØÓò
+    # ç”¨äºä¼ é€’æ•°æ®
+    loc = scrapy.Field()    # è¡¨ç¤ºåœ°åŸŸ
 
-    # ÓÃÓÚÍ¼Æ¬¹ÜµÀ
+    # ç”¨äºå›¾ç‰‡ç®¡é“
     image_urls = scrapy.Field()
     image_names = scrapy.Field()
-

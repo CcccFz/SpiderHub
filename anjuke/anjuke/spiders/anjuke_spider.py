@@ -9,9 +9,9 @@ class AnjukeSpider(Spider):
     name = "anjuke"
     custom_settings = {
         'ITEM_PIPELINES': {
-            'fang.pipelines.PdAnjukePipeline': 100,
-            'fang.pipelines.AnjukePipeline': 200,
-            'fang.pipelines.AnjukeImagesPipeline': 300,
+            # 'anjuke.pipelines.PdAnjukePipeline': 100,
+            'anjuke.pipelines.AnjukePipeline': 200,
+            # 'anjuke.pipelines.AnjukeImagesPipeline': 300,
         }
     }
     allowed_domains = ["anjuke.com"]
@@ -81,12 +81,12 @@ class AnjukeSpider(Spider):
         return u'、'.join(sel.xpath('a[@soj="canshu_left_tips"]/text()').extract())
 
     def refer_price(self, sel):
-        price = sel.xpath('span[@class="can-spe can-big space2"]/text()')
+        price = sel.xpath('span[starts-with(@class, "can-spe can-big")]/text()')
         if price :
             try:
-                return int(price.extract()[0])
+                return int(price.extract()[0].strip())
             except ValueError:
-                return int(price.extract()[0].split('-')[-1])
+                return int(price.extract()[0].split('-')[-1].strip())
         else:
             return 0
 

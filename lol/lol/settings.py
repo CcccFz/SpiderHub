@@ -90,7 +90,7 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 FEED_EXPORT_ENCODING = 'utf-8'
-IMAGES_STORE = 'img'   # ͼƬ�洢·��
+IMAGES_STORE = 'img'
 
 LOG_LEVEL= 'WARNING'
 # LOG_FILE ='error.log'
