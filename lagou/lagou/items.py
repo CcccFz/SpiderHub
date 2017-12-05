@@ -10,6 +10,7 @@ LagouInfo = OrderedDict([
     (u'薪资', 'salary'),
     (u'公司', 'company'),
     (u'经验', 'experience'),
+    (u'区域', 'zone'),
     (u'地址', 'address'),
     (u'优势', 'advantage'),
     (u'描述', 'description'),
@@ -29,6 +30,7 @@ class LagouItem(scrapy.Item):
     company = scrapy.Field()
     experience = scrapy.Field()
     education = scrapy.Field()
+    zone = scrapy.Field()
     address = scrapy.Field()
     advantage = scrapy.Field()
     description = scrapy.Field()

@@ -2,21 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Twork</title>
+  <title>聘比三家</title>
   {% include 'head_css.html' %}
   {% block self_head_css %}{% endblock %}
 </head>
 
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-  {% include 'topnav.html' %}
-  {% include 'sidebar.html' %}
-
-  <div class="layui-body">
-    {% include 'tabs.html' %}
-    {% block content %}{% endblock %}
-  </div>
-
+  {% include 'nav.html' %}
+  {% include 'tabs.html' %}
+  {% block content %}{% endblock %}
   {% include 'footer.html' %}
 </div>
 

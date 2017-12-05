@@ -1,4 +1,5 @@
-*{padding:0; margin:0}
+.layui-table td, .layui-table th {font-size: 10px}
+*{padding:0;margin:0;font-size: 10px;}
 .calender{ width:200px; margin:40px auto 0; top:0; left:0; border:4px #D6D6D6 solid; background:#EBEBEB; position:absolute; display:none; z-index:999;}
 .calendertb{width:100%;}
 .calendertb td{width:25px; height:25px;border:1px #CCCCCC solid; text-align:center; vertical-align:middle; cursor:pointer; font-size:14px; font-weight:bold;}

@@ -1,0 +1,23 @@
+<!-- 头部区域（可配合layui已有的水平导航） -->
+<div class="layui-header layui-bg-green">
+  <div class="layui-logo">聘比三家</div>
+  <ul class="layui-nav layui-layout-left">
+    <li class="layui-nav-item layui-this"><a href="">查找工作</a></li>
+    <li class="layui-nav-item"><a href="">地图选工</a></li>
+    <li class="layui-nav-item"><a href="">数据图表</a></li>
+  </ul>
+  <ul class="layui-nav layui-layout-right">
+    <li class="layui-nav-item"><a href="">用户管理</a></li>
+    <li class="layui-nav-item layui-nav-right">
+      <a href="javascript:;">
+        <img src="{{ url_for('static', filename='images/me.jpg') }}" class="layui-nav-img">
+        CcccFz
+      </a>
+      <dl class="layui-nav-child">
+        <dd><a href="">我的收藏</a></dd>
+        <dd><a href="">帐号设置</a></dd>
+        <dd><a href="">退出</a></dd>
+      </dl>
+    </li>
+  </ul>
+</div>

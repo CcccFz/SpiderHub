@@ -7,12 +7,15 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # 加载配置文件内容
-app.config.from_object('show.setting')     # 模块下的setting文件名，不用加py后缀
+app.config.from_object('show.setting')
+
+# MongoDB
 app.config['MONGO_HOST'] = '127.0.0.1'
 app.config['MONGO_PORT'] = 27017
 app.config['MONGO_DBNAME'] = 'jobs'
-
-# MongoDB
 mongo = PyMongo(app, config_prefix='MONGO')
+
+# 自定义过滤器
+app.jinja_env.filters['str2line'] = lambda s, x: '<br>'.join(s.split(x))
 
 from show.controller import index

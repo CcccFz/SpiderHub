@@ -69,7 +69,7 @@
               <a href="javascript:;" values2="" values1="" attrval="">交通补助</a> </label>
             <label>
               <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
-              <a href="javascript:;" values2="" values1="" attrval="">年底14+薪</a> </label>
+              <a href="javascript:;" values2="" values1="" attrval="">年底3+薪</a> </label>
             <label>
               <input name="checkbox2" type="checkbox" value="" autocomplete="off"/>
               <a href="javascript:;" values2="" values1="" attrval="">股票期权</a> </label>
@@ -81,7 +81,7 @@
   </div>
 </div>
 
-<div class="hasBeenSelected clearfix"><span id="time-num"><font>{{ total }}</font>个职位</span>
+<div class="hasBeenSelected clearfix"><span id="time-num"><font>{{ total }}</font> 个职位</span>
   <div style="float:right;" class="eliminateCriteria">【清空全部】 </div>
   <dl>
     <dt>已选条件：</dt>
@@ -90,12 +90,13 @@
   </dl>
 </div>
 
-<div id="job-table" class="layui-form">
+<div class="layui-form">
   <table class="layui-table">
     <colgroup>
       <col width="150">
       <col width="150">
       <col width="200">
+      <col width="150">
       <col width="150">
       <col width="150">
       <col width="200">
@@ -110,11 +111,12 @@
         <th>职位</th>
         <th>公司</th>
         <th>月薪</th>
-        <th>经验/学历</th>
+        <th>经验</th>
+        <th>学历</th>
         <th>地址</th>
         <th>优势</th>
         <th>标签</th>
-        <th>发布时间</th>
+        <th>时间</th>
         <th>领域</th>
         <th>阶段</th>
         <th>规模</th>
@@ -123,15 +125,18 @@
     <tbody>
       {% for job in jobs %}
         <tr>
-          <td><a href="{{ job.detail }}" target="_blank">{{ job.name }}</a></td>
+          <td><a href="javascript:;" onclick="OpenDesc('{{ job.description }}')">{{ job.name }}</a></td>
+          <!--<td><a href="{{ job.detail }}" target="_blank">{{ job.name }}</a></td>-->
           <td><a href="{{ job.home }}" target="_blank">{{ job.company }}</a></td>
           <td>{{ job.salary }}</td>
-          <td>{{ job.experience }}{{ job.education }}</td>
-          <td>{{ job.address }}</td>
-          <td>{{ job.advantage }}</td>
-          <td>{{ job.flags }}</td>
+          <td>{{ job.experience }}</td>
+          <td>{{ job.education }}</td>
+          <td><a href="javascript:;" onclick="OpenTip('{{ job.address }}', this)">{{ job.zone }}</a></td>
+          <!--<td>{% for x in job.advantage|str2line(',') %}{{ x }}<br>{% endfor %}</td>-->
+          <td>{{ job.advantage|str2line(',')|safe }}</td>
+          <td>{{ job.flags|str2line(',')|safe }}</td>
           <td>{{ job.time }}</td>
-          <td>{{ job.field }}</td>
+          <td>{{ job.field|str2line(',')|safe }}</td>
           <td>{{ job.trend }}</td>
           <td>{{ job.scale }}</td>
         </tr>
@@ -149,8 +154,28 @@
 <script type="text/javascript" src="{{ url_for('static', filename='shaixuan/js/ui.tab.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='shaixuan/js/shaixuan.js') }}"></script>
 <script>
-layui.use('element', function(){
+layui.use(['element', 'layer'], function() {
   var element = layui.element;
+  var layer = layui.layer;
 });
+
+function OpenTip(value, obj) {
+  layer.tips(value, obj, {
+    tips: [1, '#009688'],
+    time: 0,
+    shade: 0.01,
+    shadeClose: true
+  });
+}
+
+function OpenDesc(value) {
+  layer.open({
+    title: '职位描述',
+    type: 1,
+    skin: 'layui-layer-molv',
+    area: ['480px', '320px'],
+    content: value
+  });
+}
 </script>
 {% endblock %}
