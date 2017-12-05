@@ -18,7 +18,7 @@ LagouInfo = OrderedDict([
     (u'标签', 'flags'),
     (u'领域', 'field'),
     (u'阶段', 'trend'),
-    (u'规模', 'scale'),
+    (u'规模', '1'),
     (u'主页', 'home'),
 ])
 

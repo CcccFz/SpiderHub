@@ -1,5 +1,6 @@
 venv/
 *.log
+*.xlsx
 *.pyc
 .idea/
 .git/

@@ -1,0 +1,8 @@
+.layui-tab-content { padding: 0; }
+.layui-tab { margin-bottom: 0; }
+#job-search { padding: 50px 0; background-color: #f5f9fa; margin: 0 0; }
+.list-screen { padding:0 10px 0 10px; }
+.screenBox dl:last-child { border-bottom: none; }
+#job-table { margin-top: 50px; }
+#job-search-btn { width: 100px; margin-left: 50px; }
+td a {color: #fa7003}

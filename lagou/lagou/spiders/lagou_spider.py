@@ -48,7 +48,8 @@ class LagouSpider(Spider):
     allowed_domains = ['www.lagou.com']
     custom_settings = {
         'ITEM_PIPELINES': {
-            'lagou.pipelines.LagouPipeline': 100,
+            'lagou.pipelines.LagouWbPipeline': 100,
+            'lagou.pipelines.LagouMongoPipeline': 200,
         }
     }
 
