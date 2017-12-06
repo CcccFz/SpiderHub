@@ -1,26 +1,21 @@
 # -*- coding: utf-8 -*-
 
-from flask import render_template, flash, abort, url_for, redirect, session, Response
-
+from flask import render_template, flash, abort, url_for, redirect, session, Response, request
 from show import app
 from show.model.job import Job
 
-
-SALARY = ''
-ADVANTAGE = []
 PAGE = 10
-JOBS = []
 
-
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/<int:page>', methods=['GET'])
-def index(page=None):
-    page = page if page else 1
-    if SALARY or ADVANTAGE:
-        jobs = JOBS[PAGE*(page-1):PAGE*page]
-    else:
-        jobs = Job.find()[PAGE*(page-1):PAGE*page]
-    return render_template('index.html', jobs=jobs, total=len([x for x in jobs]), page=page)
+def index(page=1):
+    if request.method == 'POST':
+        Job.set(request.form)
+        return Response()
+    jobs = Job.find()
+    total = jobs.count()
+    jobs = jobs[PAGE*(page - 1):PAGE*page]
+    return render_template('index.html', jobs=jobs, total=total, page=page)
 
 
 @app.route('/salary/<salary>', methods=['GET'])

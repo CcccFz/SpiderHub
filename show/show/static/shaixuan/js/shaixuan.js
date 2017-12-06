@@ -118,17 +118,20 @@ oSelectList.onclick = function(e, a) {
     } else {
        if (radioVal) {
             infor += '<div class=\"selectedInfor selectedShow\"><label>' + radioVal + '</label><em p="2"></em></div>';
-            window.location.href = '/salary/' + radioVal;
+            $.post('/', {salary:'5k-10k'}, function() {
+                window.location.href = '/';
+            });
        }
     }
-
 
     var vals = [];
     for (var i = 0,
     size = okSelect.length; i < size; i++) {
         vals = okSelect[i].split('|');
         infor += '<div class=\"selectedInfor selectedShow\"><label>' + vals[0] + '</label><em></em></div>';
-        location.href = '/advantage/' + vals[0];
+        $.post('/', {salary:'10k-20k'}, function() {
+            window.location.href = '/';
+        });
     }
     oClearList.html(infor);
 };

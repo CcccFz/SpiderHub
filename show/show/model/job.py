@@ -6,14 +6,12 @@ from show import mongo
 
 class Job(object):
     col = 'lagou'
-
-    def __init__(self, col):
-        self.col = col
+    cond = {}
 
     @classmethod
-    def count(cls):
-        return mongo.db[cls.col].count()
+    def set(cls, cond):
+        cls.cond = cond
 
     @classmethod
-    def find(cls, **kwargs):
-        return mongo.db[cls.col].find(kwargs)
+    def find(cls):
+        return mongo.db[cls.col].find(cls.cond)
