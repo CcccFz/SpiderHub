@@ -1,95 +1,4 @@
-/*    var dlNum  =$("#selectList").find("dl");
-    //for (i = 0; i < dlNum.length; i++) {
-     //   $(".hasBeenSelected .clearList").append("<div class=\"selectedInfor selectedShow\" style=\"display:none\"><span></span><label></label><em></em></div>");
-   // }
-    
-    var refresh = "true";*/
-    
-   // $(".listIndex label").live("click",function(){
-//		var Asele=$(".listIndex").find("a");
-//        var text =$(this).text();
-//        var selectedShow = $(".selectedShow");
-//        var textTypeIndex =$(this).parents("dl").index();//父级dl 的索引值
-//        var textType =$(this).parent("dd").siblings("dt").text();//取上一层的文本
-//        index = textTypeIndex;
-//        $(".clearDd").show();
-//        $(".selectedShow").eq(index).show();
-//		$(this).find("a").addClass("selected");
-//
-//		$(this).find("input").attr("checked",true);
-//		var infor='<div class=\"selectedInfor selectedShow\"><span>'+textType+'</span><label>'+text+'</label><em></em></div>'
-//         $(".hasBeenSelected .clearList").append(infor);
-//		selectedShow.eq(index).find("span").text(textType);
-//        selectedShow.eq(index).find("label").text(text);
-//		判断个数显示
-//       var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
-//		if (show > 1) {
-//         $(".eliminateCriteria").show();
-//    	}
-//       
-//    });
-/*	 $(".listIndex label").toggle(function(){
-		 var Asele=$(".listIndex").find("a");
-        var text =$(this).text();
-        var selectedShow = $(".selectedShow");
-        var textTypeIndex =$(this).parents("dl").index();//父级dl 的索引值
-        var textType =$(this).parent("dd").siblings("dt").text();//取上一层的文本
-        index = textTypeIndex;
-        $(".clearDd").show();
-        $(".selectedShow").eq(index).show();
-		$(this).find("a").addClass("selected");
-
-		$(this).find("input").attr("checked",true);
-		var infor='<div class=\"selectedInfor selectedShow\"><span>'+textType+'</span><label>'+text+'</label><em></em></div>';
-         $(".hasBeenSelected .clearList").append(infor);
-		 
-	},function(){
-		$(this).find("a").removeClass("selected");
-		$(this).find("input").attr("checked",false);
-		});*/
-
-//	 $(".listIndex label").toggle(function(){
-//			 var text =$(this).text();
-//        var selectedShow = $(".selectedShow");
-//       var textTypeIndex =$(this).parents("dl").index();
-//       var textType =$(this).parent("dd").siblings("dt").text();
-//	           index = textTypeIndex -(2);
-//			 $(this).find("a").addClass("selected");
-//			 $(this).find("input").attr("checked",true);
-//			 selectedShow.eq(index).find("span").text(textType);
-//			 $(".selectedShow").eq(index).show();
-//			  $(".clearDd").show();
-//			  var show = $(".selectedShow").length - $(".selectedShow:hidden").length;
-//			//if (show > 1) {
-////					   $(".eliminateCriteria").show();
-////				}
-//		 },function(){
-//			 $(this).find("a").removeClass("selected");
-//	     	 $(this).find("input").attr("checked",false);
-//			 });
-/*
-    $(".selectedShow em").live("click",function(){
-        $(this).parents(".selectedShow").remove();
-        var textTypeIndex =$(this).parents(".selectedShow").index();
-        index = textTypeIndex;
-        $("#selectList").eq(index).find("a").removeClass("selected");
-		$("#selectList").eq(index).find("input").attr("checked",false);
-        
-      //if($(".listIndex .selected").length < 2){
-       //    $(".eliminateCriteria").hide();
-        //}
-    });   
-    $(".eliminateCriteria").live("click",function(){
-        $(".selectedShow").remove();
-        //$(this).hide();
-        $(".listIndex a ").removeClass("selected")
-		$(".listIndex a ").prev().attr("checked",false);
-    }); */
-
-
 $('.clearDd').show();
-
-
 
 var okSelect = []; //已经选择好的
 var oSelectList = document.getElementById('selectList');
@@ -152,7 +61,7 @@ oSelectList.onclick = function(e, a) {
                 }
             }
 
-            if (trim(prev(parent).innerHTML) == '酒店价格') { //这里是直接根据 text来比较的.建议加个自定义属性作标识符
+            if (trim(prev(parent).innerHTML) == '月薪') { //这里是直接根据 text来比较的.建议加个自定义属性作标识符
                 for (var i = 0; i < aRadio.length; i++) {
                     aRadio[i].checked = false;
                 }
@@ -207,7 +116,10 @@ oSelectList.onclick = function(e, a) {
         }
            
     } else {
-       if (radioVal) infor += '<div class=\"selectedInfor selectedShow\"><span>酒店价格</span><label>' + radioVal + '</label><em p="2"></em></div>';
+       if (radioVal) {
+            infor += '<div class=\"selectedInfor selectedShow\"><label>' + radioVal + '</label><em p="2"></em></div>';
+            window.location.href = '/salary/' + radioVal;
+       }
     }
 
 
@@ -215,17 +127,19 @@ oSelectList.onclick = function(e, a) {
     for (var i = 0,
     size = okSelect.length; i < size; i++) {
         vals = okSelect[i].split('|');
-        infor += '<div class=\"selectedInfor selectedShow\"><span>' + vals[1] + '</span><label>' + vals[0] + '</label><em></em></div>';
+        infor += '<div class=\"selectedInfor selectedShow\"><label>' + vals[0] + '</label><em></em></div>';
+        location.href = '/advantage/' + vals[0];
     }
     oClearList.html(infor);
 };
+
 $('div.eliminateCriteria').click(function(){
     $(oSelectList).find('input').attr('checked',false);
     radioVal = '';
     isCusPrice = false;
     okSelect.length = 0;
     $(oSelectList).trigger('click', 1);
-})
+});
 
 $('.clearList').find('em').live('click',function(){
     var self = $(this);

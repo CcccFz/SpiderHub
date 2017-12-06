@@ -46,7 +46,7 @@ a:hover{text-decoration:none;color:#118ecc;}
 .screenBox dl dd span.more em{background:url(../images/jdlist_434.png) no-repeat 0 5px;display:inline-block;float:right;width:10px;height:14px;}
 #time-num{position:absolute;left:10px;top:10px;padding: 0 10px;}
 #time-num font{color:#009688; font-size: 15px;}
-.hasBeenSelected{padding:2px;overflow:hidden;background:#f5f9fa;padding-left:100px;position:relative;}
+.hasBeenSelected{padding: 5px;overflow:hidden;background:#f5f9fa;padding-left:100px;position:relative;}
 .hasBeenSelected dl{overflow:hidden;}
 .hasBeenSelected dl dt{float:left;}
 .hasBeenSelected dl dd{float:left;}
@@ -269,4 +269,3 @@ div.sabrosus a:hover{border:#2b66a5 1px solid;color:#000;background-color:lighty
 div.pagination a:active{border:#2b66a5 1px solid;color:#000;background-color:lightyellow;}
 div.sabrosus span.current{border:navy 1px solid;padding:2px 5px;font-weight:bold;color:#fff;margin:0 2px 0 0;background-color:#2e6ab1}
 div.sabrosus span.disabled{border:#929292 1px solid;padding:2px 5px;margin:0 2px 0 0;}
-

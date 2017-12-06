@@ -46,7 +46,7 @@
               <a href="javascript:;" values2="15" values1="8" attrval="100-300">21~25k</a></label>
             <label>
               <input name="radio2" type="radio" value="" />
-              <a href="javascript:;" values2="15" values1="8" attrval="100-300">25k以上</a></label>
+              <a href="javascript:;" values2="15" values1="8" attrval="100-300">26k以上</a></label>
             <div class="custom"><span>自定义</span>&nbsp;
               <input name="" type="text" id="custext1"/> - <input name="" type="text" id="custext2"/>
               <input name="" type="button" id="cusbtn"/>
@@ -90,7 +90,7 @@
   </dl>
 </div>
 
-<div class="layui-form">
+<div id="job-table" class="layui-form">
   <table class="layui-table">
     <colgroup>
       <col width="150">
@@ -126,13 +126,11 @@
       {% for job in jobs %}
         <tr>
           <td><a href="javascript:;" onclick="OpenDesc('{{ job.description }}')">{{ job.name }}</a></td>
-          <!--<td><a href="{{ job.detail }}" target="_blank">{{ job.name }}</a></td>-->
           <td><a href="{{ job.home }}" target="_blank">{{ job.company }}</a></td>
           <td>{{ job.salary }}</td>
           <td>{{ job.experience }}</td>
           <td>{{ job.education }}</td>
           <td><a href="javascript:;" onclick="OpenTip('{{ job.address }}', this)">{{ job.zone }}</a></td>
-          <!--<td>{% for x in job.advantage|str2line(',') %}{{ x }}<br>{% endfor %}</td>-->
           <td>{{ job.advantage|str2line(',')|safe }}</td>
           <td>{{ job.flags|str2line(',')|safe }}</td>
           <td>{{ job.time }}</td>
@@ -144,6 +142,7 @@
     </tbody>
   </table>
 </div>
+<div id="laypager"></div>
 
 <!-- 内容主体区域 END -->
 {% endblock %}
@@ -154,9 +153,23 @@
 <script type="text/javascript" src="{{ url_for('static', filename='shaixuan/js/ui.tab.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='shaixuan/js/shaixuan.js') }}"></script>
 <script>
-layui.use(['element', 'layer'], function() {
+layui.use(['element', 'layer', 'laypage'], function() {
   var element = layui.element;
   var layer = layui.layer;
+  var laypage = layui.laypage;
+
+  laypage.render({
+    elem: 'laypager',  // 注意，这里的test1是ID，不用加#号
+    count: {{ total }},
+    limit: 10,
+    groups: 10,
+    {% if page %}curr: {{ page }}{% endif %},
+    jump: function(obj, first) {
+      if (!first) {
+        location.href = '/' + obj.curr;
+      }
+    }
+  });
 });
 
 function OpenTip(value, obj) {

@@ -80,7 +80,7 @@ class LagouSpider(Spider):
         item['detail'] = response.url
         item['name'] = response.xpath(x_name).extract()[0]
         item['salary'] = response.xpath(x_salary).extract()[0].strip()
-        item['company'] = response.xpath(x_company).extract()[0].replace(u'有限公司', '').replace(u'有限责任公司', '')
+        item['company'] = response.xpath(x_company).extract()[0].replace(u'有限责任公司', '').replace(u'股份有限公司', '').replace(u'有限公司', '')
         item['experience'] = response.xpath(x_experience).extract()[0].replace(u'经验', '').split()[0]
         item['zone'] = response.xpath(x_zone).extract()[-2]
         item['address'] = response.xpath(x_address).extract()[-2].split()[-1]

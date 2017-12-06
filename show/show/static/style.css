@@ -1,13 +1,14 @@
-.layui-tab-content { padding: 0; }
-.layui-tab { margin-bottom: 0; }
-#job-search { padding: 5px 0; background-color: #f5f9fa; margin: 0 0; }
-.list-screen {padding:0 10px 0 10px;}
-#job-search-btn { width: 100px; margin-left: 50px; }
 td a {color: #009688;}
-.layui-footer a {color: #009688;}
 .layui-layout-body {overflow: visible}
-.layui-layout-admin .layui-footer {left: 0; text-align: center; height: 30px; line-height: 30px;}
+.layui-tab { margin-bottom: 0; }
+.layui-tab-content { padding: 0; }
 .layui-layout-admin .layui-logo  {color: #fff}
-.layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after {
-  border-bottom: 2px solid #009688;
-}
+.layui-layout-admin .layui-footer {left: 0; text-align: center; height: 30px; line-height: 30px;}
+.layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after {border-bottom: 2px solid #009688;  }
+.layui-table, .layui-table-view {margin: 0;}
+.layui-footer a {color: #009688;}
+.list-screen {padding:0 10px 0 10px;}
+#job-search { padding: 10px 0 0 0; background-color: #f5f9fa; margin: 0 0; }
+#job-search-btn { width: 100px; margin-left: 50px; }
+#laypager {text-align: center;}
+.layui-laypage {margin: 20px 0 50px 0;}
