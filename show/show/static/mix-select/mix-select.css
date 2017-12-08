@@ -1,33 +1,55 @@
 .mix-select {
 	background-color: #f5f9fa;
 	font-size: 12px;
-	padding: 0 10px 10px 10px;
+	padding: 30px 15px 15px 15px;
+}
+
+.mix-select-row {
+	text-align: center;
+}
+
+.mix-select-search {
+	margin-bottom: 20px;
+}
+
+.mix-select-search label input {
+	width: 800px;
+	float: left;
+}
+
+.mix-select-search button {
+	width: 80px;
+	margin-left: 50px;
 }
 
 .mix-select table {
 	border-bottom: #e6e6e6 1px dashed;
-	padding: 10px 0;
 	width: 100%;
 }
 
+.mix-select tbody {
+	margin-left: 30px;
+}
+
 .mix-select thead {
-	font-size: 14px;
+	padding-right: 40px;
+	font-size: 15px;
 }
 
 .mix-select thead, .mix-select tbody {
 	float: left;
-	margin-right: 30px;
+	margin: 10px 0 10px 0;
 }
 
 .mix-select tr td {
-	padding: 0 10px;
+	padding: 0 20px;
 	height: 23px;
 }
 
 .mix-select tr td a {
 	color: #000;
-	padding: 3px 7px 4px 7px;
-	border-radius: 10px;
+	padding: 6px 6px 6px 6px;
+	border-radius: 15px;
 	text-decoration: none;
 }
 
@@ -43,18 +65,17 @@
 
 .mix-select-total {
 	float: left;
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 .mix-select-total span:first-child {
 	color: #009688;
-	font-size: 14px;
-	margin-left: 5px;
+	font-size: 18px;
 }
 
 .mix-select-sort {
 	text-align: right;
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 .mix-select-sort a {

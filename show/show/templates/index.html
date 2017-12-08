@@ -8,10 +8,12 @@
 <!-- 内容主体区域 -->
 
 <div class="mix-select">
-	<div class="mix-select-search">
-		<label><input type="text" autocomplete="on" placeholder="搜索职位、公司以及其它相关信息"></label>
-		<button>确定</button>
-	</div>
+  <div class="mix-select-row">
+    <div class="mix-select-search">
+      <label><input type="text" name="title" autocomplete="off" placeholder="搜索职位、公司以及其它相关信息" class="layui-input"></label>
+      <button class="layui-btn layui-btn-radius">搜索</button>
+    </div>
+  </div>
 
 	<table>
 		<thead class="salary"><th>薪资</th></thead>
@@ -45,11 +47,11 @@
 		<span>个职位</span>
 	</div>
 	<div class="mix-select-sort">
-		排序方式 :
-		<a href="javascript:" class="active">默认</a> |
-		<a href="javascript:">按薪资</a> |
-		<a href="javascript:">按经验</a> |
-		<a href="javascript:">按规模</a> |
+		排序方式 :&ensp; &ensp;
+		<a href="javascript:" class="active">默认</a> &ensp;|&ensp;
+		<a href="javascript:">按薪资</a> &ensp;|&ensp;
+		<a href="javascript:">按经验</a> &ensp;|&ensp;
+		<a href="javascript:">按规模</a> &ensp;|&ensp;
 		<a href="javascript:">按发布时间</a>
 	</div>
 </div>
@@ -75,12 +77,12 @@
         <th>职位</th>
         <th>公司</th>
         <th>月薪</th>
-        <th>经验</th>
-        <th>学历</th>
-        <th>地址</th>
-        <th>优势</th>
+        <th>经验要求</th>
+        <th>学历要求</th>
+        <th>公司地址</th>
+        <th>福利优势</th>
         <th>标签</th>
-        <th>时间</th>
+        <th>发布时间</th>
         <th>领域</th>
         <th>阶段</th>
         <th>规模</th>
@@ -112,7 +114,7 @@
 {% endblock %}
 
 {% block self_foot_script %}
-<script type="text/javascript" src="{{ url_for('static', filename='shaixuan/js/jquery-1.5.1.js') }}"></script><!--日期控件，JS库版本不能过高否则tab会失效-->
+<script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script><!--日期控件，JS库版本不能过高否则tab会失效-->
 <script type="text/javascript" src="{{ url_for('static', filename='mix-select/mix-select.js') }}"></script>
 <script>
 layui.use(['element', 'layer', 'laypage'], function() {
