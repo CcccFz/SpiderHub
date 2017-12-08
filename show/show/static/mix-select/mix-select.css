@@ -1,0 +1,73 @@
+.mix-select {
+	background-color: #f5f9fa;
+	font-size: 12px;
+	padding: 0 10px 10px 10px;
+}
+
+.mix-select table {
+	border-bottom: #e6e6e6 1px dashed;
+	padding: 10px 0;
+	width: 100%;
+}
+
+.mix-select thead {
+	font-size: 14px;
+}
+
+.mix-select thead, .mix-select tbody {
+	float: left;
+	margin-right: 30px;
+}
+
+.mix-select tr td {
+	padding: 0 10px;
+	height: 23px;
+}
+
+.mix-select tr td a {
+	color: #000;
+	padding: 3px 7px 4px 7px;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+.mix-select tr td a.active {
+	background: #009688;
+	color: #fff;
+}
+
+.mix-select tr td a.delete {
+	background: #fff;
+	color: #000;
+}
+
+.mix-select-total {
+	float: left;
+	margin-top: 5px;
+}
+
+.mix-select-total span:first-child {
+	color: #009688;
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+.mix-select-sort {
+	text-align: right;
+	margin-top: 5px;
+}
+
+.mix-select-sort a {
+	color: #979797;
+	text-decoration: none;
+}
+
+.mix-select-sort a.active {
+	color: #009688;
+}
+
+.mix-select-sort a.delete {
+	color: #979797;
+}
+
+
