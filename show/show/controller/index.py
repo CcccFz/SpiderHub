@@ -18,6 +18,10 @@ def index(page=1):
     return render_template('index.html', jobs=jobs, total=total, page=page)
 
 
+@app.route('/map', methods=['GET'])
+def open_map():
+    return render_template('map.html')
+
 @app.route('/salary/<salary>', methods=['GET'])
 def salary(salary=''):
     jobs = []

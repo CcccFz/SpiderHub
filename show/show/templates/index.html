@@ -8,11 +8,9 @@
 <!-- 内容主体区域 -->
 
 <div class="mix-select">
-  <div class="mix-select-row">
-    <div class="mix-select-search">
-      <label><input type="text" name="title" autocomplete="off" placeholder="搜索职位、公司以及其它相关信息" class="layui-input"></label>
-      <button class="layui-btn layui-btn-radius">搜索</button>
-    </div>
+  <div class="mix-select-search">
+    <input type="text" autocomplete="off" placeholder="搜索职位、公司以及其它相关信息" >
+    <button class="layui-btn layui-btn-radius">搜索</button>
   </div>
 
 	<table>
@@ -20,12 +18,12 @@
 		<tbody>
 			<tr>
 				<td><a href="javascript:" class="active">不限</a></td>
-				<td><a href="javascript:">5k及以下</a></td>
+				<td><a href="javascript:">0k-5k</a></td>
 				<td><a href="javascript:">6k-10k</a></td>
 				<td><a href="javascript:">11k-15k</a></td>
 				<td><a href="javascript:">16k-20k</a></td>
 				<td><a href="javascript:">21k-25k</a></td>
-				<td><a href="javascript:">26k及以上</a></td>
+				<td><a href="javascript:">26k+</a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -43,7 +41,7 @@
 		</tbody>
 	</table>
 	<div class="mix-select-total">
-		<span>76</span>
+		<span>{{ total }}</span>
 		<span>个职位</span>
 	</div>
 	<div class="mix-select-sort">
@@ -59,16 +57,16 @@
 <div id="job-table" class="layui-form">
   <table class="layui-table">
     <colgroup>
-      <col width="150">
-      <col width="150">
-      <col width="200">
-      <col width="150">
-      <col width="150">
-      <col width="150">
-      <col width="200">
-      <col width="150">
-      <col width="150">
-      <col width="200">
+      <col width="250">
+      <col width="250">
+      <col width="100">
+      <col width="100">
+      <col width="100">
+      <col width="125">
+      <col width="125">
+      <col width="100">
+      <col width="100">
+      <col width="100">
       <col width="100">
       <col width="100">
     </colgroup>
@@ -77,8 +75,8 @@
         <th>职位</th>
         <th>公司</th>
         <th>月薪</th>
-        <th>经验要求</th>
-        <th>学历要求</th>
+        <th>经验</th>
+        <th>学历</th>
         <th>公司地址</th>
         <th>福利优势</th>
         <th>标签</th>
@@ -114,7 +112,7 @@
 {% endblock %}
 
 {% block self_foot_script %}
-<script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script><!--日期控件，JS库版本不能过高否则tab会失效-->
+<script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='mix-select/mix-select.js') }}"></script>
 <script>
 layui.use(['element', 'layer', 'laypage'], function() {
@@ -123,7 +121,7 @@ layui.use(['element', 'layer', 'laypage'], function() {
   var laypage = layui.laypage;
 
   laypage.render({
-    elem: 'laypager',  // 注意，这里的test1是ID，不用加#号
+    elem: 'laypager',
     count: {{ total }},
     limit: 10,
     groups: 10,
@@ -150,7 +148,7 @@ function OpenDesc(value) {
     title: '职位描述',
     type: 1,
     skin: 'layui-layer-molv',
-    area: ['480px', '320px'],
+    area: ['640px', '480px'],
     content: value
   });
 }

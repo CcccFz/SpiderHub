@@ -1,25 +1,22 @@
 .mix-select {
 	background-color: #f5f9fa;
 	font-size: 12px;
-	padding: 30px 15px 15px 15px;
-}
-
-.mix-select-row {
-	text-align: center;
+	padding: 30px 15px 5px 15px;
 }
 
 .mix-select-search {
 	margin-bottom: 20px;
+	text-align: center;
 }
 
-.mix-select-search label input {
+.mix-select-search input {
 	width: 800px;
-	float: left;
+	padding: 10px 5px;
 }
 
 .mix-select-search button {
 	width: 80px;
-	margin-left: 50px;
+	margin-left: 40px;
 }
 
 .mix-select table {
@@ -32,23 +29,23 @@
 }
 
 .mix-select thead {
-	padding-right: 40px;
+	padding-right: 30px;
 	font-size: 15px;
 }
 
 .mix-select thead, .mix-select tbody {
 	float: left;
-	margin: 10px 0 10px 0;
+	margin: 5px 0 5px 0;
 }
 
 .mix-select tr td {
-	padding: 0 20px;
+	padding: 0 10px;
 	height: 23px;
 }
 
 .mix-select tr td a {
 	color: #000;
-	padding: 6px 6px 6px 6px;
+	padding: 5px 5px 4px 5px;
 	border-radius: 15px;
 	text-decoration: none;
 }
@@ -65,7 +62,7 @@
 
 .mix-select-total {
 	float: left;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .mix-select-total span:first-child {
@@ -75,7 +72,7 @@
 
 .mix-select-sort {
 	text-align: right;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .mix-select-sort a {
@@ -90,5 +87,3 @@
 .mix-select-sort a.delete {
 	color: #979797;
 }
-
-
