@@ -6,5 +6,3 @@ Scrapy==1.4.0
 numpy
 pandas
 charts
-Flask-PyMongo
-pymongo
