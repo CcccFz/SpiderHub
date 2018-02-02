@@ -31,8 +31,7 @@ class MaiziSpider(Spider):
             'web-all': u'web前端开发', 'python-all': u'python web开发', 'ml-all': u'机器学习', 'oam-all': u'自动化运维',
             'te-all': u'软件测试', 'sec-all': u'网络安全', 'java-all': u'java开发'
         }
-        print u'#################################################### [START] Start Maizi Spider, Time: %s ####################################################' \
-              % datetime.now()
+        print(u'########## [START] Start Maizi Spider, Time: %s ##########' % datetime.now())
 
     def start_requests(self):
         for suit_en, suit_cn in self.need_suits.items():

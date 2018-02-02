@@ -6,35 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 
-import requests
-import random
-import base64
 from scrapy import signals
-import useragents
-from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
-
-
-def get_proxy():
-    return requests.get("http://127.0.0.1:5010/get/").content
-
-
-def delete_proxy(proxy):
-    requests.get("http://127.0.0.1:5010/delete/?proxy={}".format(proxy))
-
-
-def get_useful_proxy():
-    while True:
-        proxy = get_proxy()
-        try:
-            ret = requests.get('http://www.maiziedu.com', proxies={'http': 'http://%s' % proxy}, timeout=5)
-            if ret.status_code == 200:
-                return proxy
-            else:
-                delete_proxy(proxy)
-                continue
-        except Exception:
-            delete_proxy(proxy)
-            continue
 
 
 class BatchvideoSpiderMiddleware(object):
@@ -83,18 +55,4 @@ class BatchvideoSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
-
-
-class RotateUserAgentMiddleware(UserAgentMiddleware):
-
-    def process_request(self, request, spider):
-        agent = random.choice(useragents.agents)
-        request.headers.setdefault(b'User-Agent', agent)
-
-
-class ProxyMiddleware(object):
-
-    def process_request(self, request, spider):
-        request.meta['proxy'] = "http://%s" % get_useful_proxy()
-
 

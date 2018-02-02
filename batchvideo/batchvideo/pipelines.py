@@ -12,15 +12,6 @@ from datetime import datetime
 from scrapy.exceptions import DropItem
 
 
-def test(item):
-    print '--------------------------------'
-    print item['suit']
-    print item['course']
-    print item['name']
-    print item['name_en']
-    print item['url']
-
-
 def download_video(base_path, item):
     path = os.path.join(base_path, item['suit'], item['course'])
     if not os.path.exists(path):
@@ -40,14 +31,13 @@ class BatchvideoPipeline(object):
             os.mkdir(self._path)
 
     def close_spider(self, spider):
-        print u'#################################################### [END] End Maizi Spider, Time: %s, Total: %d ####################################################' \
-              % (datetime.now(), self._count)
+        print(u'########## [END] End Maizi Spider, Time: %s, Total: %d ##########' % (datetime.now(), self._count))
 
     def process_item(self, item, spider):
         if item['suit'] and item['course'] and item['name'] and item['url']:
             self._count += 1
             # download_video(self._path, item)
-            test(item)
+            print(item['url'])
             return item
         else:
             raise DropItem(u'[Error] Not find mp4 in this site: %s%s' % (spider.base_url, item['name_en']))

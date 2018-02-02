@@ -1,10 +1,10 @@
-openpyxl==1.8.1
-Pillow==4.3.0
-pinyin==0.4.0
-ipython==2.4.1
-Scrapy==1.4.0
+requests
+pypiwin32
+openpyxl
+Pillow
+pinyin
+ipython
+Scrapy
 numpy
 pandas
 charts
-requests
-pypiwin32

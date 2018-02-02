@@ -47,15 +47,12 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    'batchvideo.middlewares.BatchvideoSpiderMiddleware': 543,
 # }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-# #    'batchvideo.middlewares.MyCustomDownloaderMiddleware': 543,
-# #     'batchvideo.middlewares.RotateUserAgentMiddleware': 543,
-#     'batchvideo.middlewares.ProxyMiddleware': 544,
+#     'batchvideo.middlewares.MyCustomDownloaderMiddleware': 543,
 # }
 
 # Enable or disable extensions
