@@ -27,7 +27,7 @@ class BatchvideoPipeline(object):
     down_count = 0
 
     def __init__(self):
-        self._path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'videos')
+        self._path = os.path.join('D:\\', 'videos')
         self._count = 0
 
     def open_spider(self, spider):
