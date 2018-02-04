@@ -28,8 +28,13 @@ class MaiziSpider(Spider):
         self.base_url = 'http://www.maiziedu.com'
         self.start_url = 'http://www.maiziedu.com/course/%s/0-1/'
         self.need_suits = {
-            'web-all': u'web前端开发', 'python-all': u'python web开发', 'ml-all': u'机器学习', 'oam-all': u'自动化运维',
-            'te-all': u'软件测试', 'sec-all': u'网络安全', 'java-all': u'java开发'
+        	'python-all': u'python web开发'
+            # 'web-all': u'web前端开发',
+            # 'te-all': u'软件测试',
+            # 'sec-all': u'网络安全',
+            # 'oam-all': u'自动化运维',
+            # 'java-all': u'java开发',
+            # 'ml-all': u'机器学习'
         }
         print(u'########## [START] Start Maizi Spider, Time: %s ##########' % datetime.now())
 
