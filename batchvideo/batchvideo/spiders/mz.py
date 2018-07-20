@@ -28,9 +28,9 @@ class MaiziSpider(Spider):
         self.base_url = 'http://www.maiziedu.com'
         self.start_url = 'http://www.maiziedu.com/course/%s/0-1/'
         self.need_suits = {
-        	'python-all': u'python web开发'
+        	# 'python-all': u'python web开发'
             # 'web-all': u'web前端开发',
-            # 'te-all': u'软件测试',
+            'te-all': '软件测试'
             # 'sec-all': u'网络安全',
             # 'oam-all': u'自动化运维',
             # 'java-all': u'java开发',
@@ -45,14 +45,15 @@ class MaiziSpider(Spider):
 
     def parse_paginator(self, response):
         for paginator in re.findall(r_paginator % response.meta['suit_en'], response.text):
+            print(paginator)
             yield Request(u'%s%s' % (self.base_url, paginator), self.parse_page, meta=response.meta)
 
     def parse_page(self, response):
         repeat_list = []
-        for course_cn, course_en, course_id in r_course.findall(response.text):
+        for course_cn, course_en, course_id in r_course.findall(response.text):            
             if course_cn in repeat_list:
                 continue
-            repeat_list.append(course_cn)
+            repeat_list.append(course_cn)            
             response.meta['course_cn'], response.meta['course_id'] = course_cn, course_id
             yield Request(u'%s%s' % (self.base_url, course_en), self.parse_detail, meta=response.meta)
 
@@ -67,7 +68,7 @@ class MaiziSpider(Spider):
     def parse_item(self, response):
         item = BatchvideoItem()
         item['suit'] = response.meta['suit_cn'].strip()
-        item['course'] = response.meta['course_cn'].strip()
+        item['course'] = response.meta['course_cn'].strip()        
         item['name'] = response.meta['name_cn'].strip()
         item['name_en'] = response.meta['name_en'].strip()
         try:

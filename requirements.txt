@@ -1,5 +1,5 @@
-requests
 pypiwin32
+requests
 openpyxl
 Pillow
 pinyin
