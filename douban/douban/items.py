@@ -12,4 +12,3 @@ class DoubanItem(scrapy.Item):
     nick_name = scrapy.Field()
     user_name = scrapy.Field()
     url = scrapy.Field()
-    location = scrapy.Field()

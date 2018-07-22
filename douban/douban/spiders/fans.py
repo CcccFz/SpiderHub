@@ -38,8 +38,8 @@ class FansSpider(Spider):
     }
 
     formdata = {
-        'form_email': '13708045040',
-        'form_password': '',
+        'form_email': 'xxxx',
+        'form_password': 'xxxxx',
         # 'captcha-solution': '',
         # 'captcha-id': '',
         'login': '登录',
@@ -95,12 +95,16 @@ class FansSpider(Spider):
                           headers=self.headers, meta={'cookiejar': response.meta['cookiejar']})
 
     def parse_detail(self, response):
-        item = DoubanItem()
-        item['nick_name'] = response.xpath(x_nick_name).extract()[0].strip()
-        item['user_name'] = response.xpath(x_user_name).extract()[0].strip()
-        item['url'] = response.url
         try:
-            item['location'] = response.xpath(x_location).extract()[0].strip()
+            location = response.xpath(x_location).extract()[0].strip()
         except IndexError:
-            item['location'] = ''
-        yield item
+            location = ''
+
+        if '成都' in location:
+            item = DoubanItem()
+            item['nick_name'] = response.xpath(x_nick_name).extract()[0].strip()
+            item['user_name'] = response.xpath(x_user_name).extract()[0].strip()
+            item['url'] = response.url
+            yield item
+        else:
+            return

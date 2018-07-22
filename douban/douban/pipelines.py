@@ -32,9 +32,6 @@ class DoubanXlsxPipeline(object):
 
 
 class DoubanCsvPipeline(object):
-
-    total = 0
-
     def __init__(self):
         self._file = None
 
@@ -44,12 +41,7 @@ class DoubanCsvPipeline(object):
 
     def close_spider(self, spider):
         self._file.close()
-        print('******************* 总数为：%s ********************' % self.total)
 
     def process_item(self, item, spider):
-        self.total += 1
-        if '成都' in item['location']:
-            self._file.write('%s,%s,%s\n' % (item['user_name'], item['nick_name'], item['url']))
-            return item
-        else:
-            raise DropItem('Not in ChengDU')
+        self._file.write('%s,%s,%s\n' % (item['user_name'], item['nick_name'], item['url']))
+        return item
